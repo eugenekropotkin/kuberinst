@@ -71,6 +71,18 @@
   strategy: free
 
   tasks:
+  - name: make config dir
+    raw: mkdir -p $HOME/.kube
+    changed_when: false
+
+  - name: copy config to config dir
+    raw: cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+    changed_when: false
+
+  - name: chown config
+    raw: chown $(id -u):$(id -g) $HOME/.kube/config
+    changed_when: false
+
   - name: Remove dependencies that are no longer required
     apt:
       autoremove: yes
