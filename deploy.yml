@@ -87,7 +87,13 @@
     apt:
       autoremove: yes
 
+  - name: Copy network cfg
+    copy:
+      src: files/kube-flannel.yml
+      dest: /tmp/kube-flannel.yml
 
+  - name: install Pod network
+    shell: kubectl apply -f /tmp/kube-flannel.yml >> ~/pod_network_setup.txt
 
 - hosts: kslaves
   strategy: free
@@ -96,4 +102,6 @@
   - name: Remove dependencies that are no longer required
     apt:
       autoremove: yes
+
+
 
