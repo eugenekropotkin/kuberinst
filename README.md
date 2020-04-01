@@ -26,7 +26,7 @@ https://www.digitalocean.com/community/tutorials/how-to-create-a-kubernetes-clus
 
 ## Test
 
-- create service Nginx
+#### create service Nginx
 
  kubectl create deployment nginx --image=nginx
  
@@ -36,7 +36,7 @@ https://www.digitalocean.com/community/tutorials/how-to-create-a-kubernetes-clus
 - this command will return node.port (nginx  NodePort  10.106.144.22   <none>  80:31511/TCP   2m23s)
 - you can browse any node IP and this port to check all works fine
 
-- cleanup
+#### cleanup
 
  kubectl delete deployment nginx
  
