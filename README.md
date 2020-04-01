@@ -1,7 +1,7 @@
 # kuberinst
 Install docker &amp; k8s
 
-- under development (installs kebeadm only)
+- under development
 
 - network:
 https://github.com/coreos/flannel/blob/master/Documentation/kube-flannel.yml
@@ -9,8 +9,6 @@ https://github.com/projectcalico/canal/blob/master/k8s-install/canal.yaml
 
 - commands:
 https://www.digitalocean.com/community/tutorials/how-to-create-a-kubernetes-cluster-using-kubeadm-on-ubuntu-18-04
-(after role, go to "Step 4")
-
 
 
 ### Tested on:
@@ -20,3 +18,5 @@ https://www.digitalocean.com/community/tutorials/how-to-create-a-kubernetes-clus
  fill hosts in hosts, specify ssh key in ansible.cfg then:
  
  **ansible-playbook deploy.yml**
+
+ At the end, on a Master node will be file join.sh - run it to join nodes, when it needed
