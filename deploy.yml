@@ -71,17 +71,21 @@
   strategy: free
 
   tasks:
-#  - name: make config dir
-#    raw: mkdir -p $HOME/.kube
-#    changed_when: false
 
-#  - name: copy config to config dir
-#    raw: cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-#    changed_when: false
+  - name: init Pod network
+    shell: kubeadm init --pod-network-cidr=10.244.0.0/16 >> ~/cluster_initialized.txt
 
-#  - name: chown config
-#    raw: chown $(id -u):$(id -g) $HOME/.kube/config
-#    changed_when: false
+  - name: save register command
+    shell: cat ~/cluster_initialized.txt  | grep "kubeadm join\|discovery-token" > ~/join.sh
+
+  - name: create .kube directory
+    shell: mkdir -p $HOME/.kube
+
+  - name: copy admin.conf to .kube config
+    copy:
+      src: /etc/kubernetes/admin.conf
+      dest: $HOME/.kube/config
+      remote_src: yes
 
   - name: Remove dependencies that are no longer required
     apt:
@@ -94,6 +98,7 @@
 
   - name: install Pod network
     shell: kubectl apply -f /tmp/kube-flannel.yml >> ~/pod_network_setup.txt
+
 
 - hosts: kslaves
   strategy: free

@@ -1,10 +1,10 @@
 [kmaster]
-kb1 ansible_host=192.168.0.211
+kb1 ansible_host=192.168.0.211 role=master
 
 [kslaves]
 kb2 ansible_host=192.168.0.212
 kb3 ansible_host=192.168.0.213
-kb4 ansible_host=192.168.0.214
+#kb4 ansible_host=192.168.0.214
 
 [dockerhosts:children]
 kmaster
