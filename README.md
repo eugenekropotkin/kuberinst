@@ -1,5 +1,5 @@
 # kuberinst
-Install docker &amp; k8s
+Install docker &amp; k8s on Ubuntu 18.04 (perhaps, Debian 10)
 
 - network:
 https://github.com/coreos/flannel/blob/master/Documentation/kube-flannel.yml (used bu default)
