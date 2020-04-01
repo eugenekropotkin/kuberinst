@@ -1,10 +1,8 @@
 # kuberinst
 Install docker &amp; k8s
 
-- under development
-
 - network:
-https://github.com/coreos/flannel/blob/master/Documentation/kube-flannel.yml
+https://github.com/coreos/flannel/blob/master/Documentation/kube-flannel.yml (used bu default)
 https://github.com/projectcalico/canal/blob/master/k8s-install/canal.yaml
 
 - commands:
